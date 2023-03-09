@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ myName }}</h1>
+      <p :title="myName">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste quo aut blanditiis. Praesentium, totam dolorem obcaecati quidem aspernatur est consequuntur! Facilis excepturi saepe voluptatem itaque eos, aliquam nisi necessitatibus eum?
+      </p>
+      <button v-bind="objAttrs" :disabled="isButtonDisabled">Click Me</button>
+      <p>Using text interpolation: {{ rawHtml }}</p>
+      <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+    </div>
+
+    <script type="module">
+      import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+
+      const app = createApp({
+        data() {
+          return {
+            myName: "Hello MSM",
+            rawHtml: "<b>Hello World</b>",
+            isButtonDisabled: true,
+            objAttrs : {
+                id: "bb",
+                class: "cc"
+            }
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
